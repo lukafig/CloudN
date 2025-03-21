@@ -6,16 +6,16 @@
     2025.1
 
 
-## KIT-P
+## KIT-N
 
-João da Silva
+Luka Figueiredo
 
-Pedro de Souza
+Luiz Durand
 
 
 ## Entregas
 
-- [x] Roteiro 1 - Data 23/02/2025
+- [x] Roteiro 1 - Data 21/03/2025
 - [ ] Roteiro 2
 - [ ] Roteiro 3
 - [ ] Roteiro 4
