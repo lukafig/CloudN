@@ -75,23 +75,29 @@ juju switch controller
 juju deploy juju-dashboard --to lxd:0
 juju intergrate juju-dashboard controller
 ```
-
+Cria o modelo openstack com a série padrão jammy.
+Troca para o modelo controller.
+Implanta o painel do Juju (juju-dashboard) em um container da máquina 0.
+Integra o painel ao controlador para gerenciar os modelos via interface web.
 
 ```bash
 juju enable-dashboard
 juju dashboard
 ```
+Ativa a interface web do Juju.
+Exibe o link de acesso e credenciais para login.
 
 ```bash
 mkdir -p /home/cloud/charms
 cd /home/cloud/charms
 ```
-e dentro da pasta charms
+Cria e acessa o diretório onde os charms serão armazenados.
 
 ```bash
 juju download grafana
 juju download prometheus2
 ```
+Baixa os charms Grafana e Prometheus2 localmente para futura implantação.
 
 ```bash
 juju switch openstack
@@ -99,15 +105,21 @@ juju deploy ./prometheus2_r60.charm
 juju deploy grafana
 
 ```
-depois devemos intergrar eles
+
+Troca para o modelo openstack.
+Implanta o Prometheus2 a partir do arquivo .charm baixado.
+Implanta o Grafana diretamente do repositório de charms.
+
 ```bash
 juju intergrate grafana:grafana-source prometheus2:grafana-source
 ```
+Conecta Grafana ao Prometheus, permitindo uso das métricas como fonte de dados.
 
 ```bash
 juju expose grafana
 juju expose prometheus2
 ```
+Libera acesso externo aos serviços via rede.
 
 Acessamos o Grafana via navegador:
 
@@ -118,6 +130,7 @@ Acessamos http://<IP>:3000 e fizemos login com a senha resultante dessa linha
 ```bash
 juju run grafana/0 get-admin-password
 ```
+Faça login e configure seu dashboard!
 
 ##Tarefas
 
