@@ -1,3 +1,4 @@
+
 # Roteiro 4 - OpenStack e Kubernetes: Checkpoint por Aluno
 
 ## Introdução
@@ -45,6 +46,22 @@ Visualização da arquitetura montada com Kubernetes e serviços integrados, inc
 
 ![T4.7](6.1.jpeg)
 ![T4.8](6.2.jpeg)
+
+## Terraform: Automação da Infraestrutura como Código
+
+Neste roteiro, foi fundamental a utilização do Terraform como ferramenta de Infraestrutura como Código (IaC) para provisionar e gerenciar os recursos no OpenStack de forma automatizada e reprodutível. O Terraform permite definir a infraestrutura desejada por meio de arquivos de configuração (`.tf`), garantindo consistência e versionamento das alterações.
+
+**Etapas realizadas:**
+
+1. **Definição da infraestrutura:** Foram criados arquivos `.tf` especificando redes, sub-redes, roteadores e instâncias, adaptados às necessidades de cada aluno.
+
+2. **Inicialização do Terraform:** Com o comando `terraform init`, o ambiente foi preparado, baixando os plugins necessários para o provedor OpenStack.
+
+3. **Planejamento das alterações:** Utilizando `terraform plan`, foi possível visualizar as ações que o Terraform executaria, permitindo uma revisão antes da aplicação.
+
+4. **Aplicação das configurações:** Por fim, `terraform apply` foi executado para criar ou atualizar os recursos conforme definido nos arquivos de configuração.
+
+Essa abordagem proporcionou uma gestão eficiente da infraestrutura, facilitando a replicação do ambiente e minimizando erros manuais. Além disso, o uso do Terraform alinhou-se às práticas modernas de DevOps, promovendo agilidade e controle no gerenciamento dos recursos em nuvem.
 
 ## Plano de Disaster Recovery e SLA
 
