@@ -602,6 +602,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terraform-automacao-da-infraestrutura-como-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform: Automação da Infraestrutura como Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plano-de-disaster-recovery-e-sla" class="md-nav__link">
     <span class="md-ellipsis">
       Plano de Disaster Recovery e SLA
@@ -771,6 +780,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terraform-automacao-da-infraestrutura-como-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform: Automação da Infraestrutura como Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plano-de-disaster-recovery-e-sla" class="md-nav__link">
     <span class="md-ellipsis">
       Plano de Disaster Recovery e SLA
@@ -835,6 +853,24 @@
 <p>Visualização da arquitetura montada com Kubernetes e serviços integrados, incluindo Load Balancer, banco de dados, APIs e cliente.</p>
 <p><a class="glightbox" href="../6.1.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="T4.7" src="../6.1.jpeg" /></a>
 <a class="glightbox" href="../6.2.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="T4.8" src="../6.2.jpeg" /></a></p>
+<h2 id="terraform-automacao-da-infraestrutura-como-codigo">Terraform: Automação da Infraestrutura como Código</h2>
+<p>Neste roteiro, foi fundamental a utilização do Terraform como ferramenta de Infraestrutura como Código (IaC) para provisionar e gerenciar os recursos no OpenStack de forma automatizada e reprodutível. O Terraform permite definir a infraestrutura desejada por meio de arquivos de configuração (<code>.tf</code>), garantindo consistência e versionamento das alterações.</p>
+<p><strong>Etapas realizadas:</strong></p>
+<ol>
+<li>
+<p><strong>Definição da infraestrutura:</strong> Foram criados arquivos <code>.tf</code> especificando redes, sub-redes, roteadores e instâncias, adaptados às necessidades de cada aluno.</p>
+</li>
+<li>
+<p><strong>Inicialização do Terraform:</strong> Com o comando <code>terraform init</code>, o ambiente foi preparado, baixando os plugins necessários para o provedor OpenStack.</p>
+</li>
+<li>
+<p><strong>Planejamento das alterações:</strong> Utilizando <code>terraform plan</code>, foi possível visualizar as ações que o Terraform executaria, permitindo uma revisão antes da aplicação.</p>
+</li>
+<li>
+<p><strong>Aplicação das configurações:</strong> Por fim, <code>terraform apply</code> foi executado para criar ou atualizar os recursos conforme definido nos arquivos de configuração.</p>
+</li>
+</ol>
+<p>Essa abordagem proporcionou uma gestão eficiente da infraestrutura, facilitando a replicação do ambiente e minimizando erros manuais. Além disso, o uso do Terraform alinhou-se às práticas modernas de DevOps, promovendo agilidade e controle no gerenciamento dos recursos em nuvem.</p>
 <h2 id="plano-de-disaster-recovery-e-sla">Plano de Disaster Recovery e SLA</h2>
 <p>Diante da responsabilidade de liderar a implantação de um sistema crítico, distribuído em várias regiões do Brasil e com alto grau de confidencialidade, a escolha da infraestrutura se dá pela adoção de uma <strong>nuvem privada (Private Cloud)</strong>. Isso garante controle direto sobre os dados sensíveis, menor exposição pública e permite customizações específicas de segurança e rede.</p>
 <p>Para sustentar a operação contínua e minimizar falhas, a presença de um <strong>time DevOps</strong> é essencial. Ele garante a automação de processos, integração contínua, entrega ágil de melhorias e respostas rápidas a incidentes. O time atua de forma colaborativa entre desenvolvimento e operações, otimizando o ciclo de vida das aplicações.</p>
