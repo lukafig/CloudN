@@ -272,24 +272,46 @@ Para estimar o custo mensal da infraestrutura na AWS Lightsail, utilizamos dois 
      * **40 GB SSD**
    * Este plano atende à necessidade de armazenamento do banco MySQL e garante desempenho suficiente para operações CRUD básicas.
 
+   ![Plano de Banco Lightsail](db.png)
 
 2. **Serviço de Container (fastapi-service)**
 
-   * Selecionamos o **plano Nano de \$7 USD/mês**, que inclui:
+   * Selecionamos o **plano Nano**, que inclui:
 
      * **512 MB RAM**
      * **0.25 vCPUs**
-   * Este plano é adequado para hospedar a API reutilizando a imagem Docker já preparada, garantindo acesso público ao serviço.
 
+   * A variação de nós (scale) impacta diretamente o custo mensal do serviço:
+
+     | Número de Nós | Custo por mês (USD) |
+     | ------------- | ------------------- |
+     | 1             | 7                   |
+     | 5             | 35                  |
+     | 10            | 70                  |
+
+   * Essas opções permitem ajustar a capacidade de processamento conforme demanda, mantendo-se dentro do orçamento.
+
+   ![Plano de Container Lightsail - 1 nó](1no.png)
+   ![Plano de Container Lightsail - 1 nó](5nos.png)
+   ![Plano de Container Lightsail - 1 nó](10nos.png)
 
 ### Cálculo Total
 
-* **Banco de Dados:** \$15 USD/mês
-* **Serviço de Container:**  \$7 USD/mês
+* **Banco de Dados (fixo):** \$15 USD/mês
 
-**Total estimado:** **\$22 USD/mês** (≤ USD 50 conforme limite estabelecido)
+* **Serviço de Container (variável):**
 
-Este valor inclui apenas os recursos principais (banco e container). A AWS Lightsail não cobra por transferência de dados dentro da cota mensal de 500 GB; excedentes podem gerar custos adicionais baixos (ex.: \$0.09 USD/GB extra). Assim, permanecemos confortavelmente dentro do orçamento.
+  * **1 nó:** \$7 USD/mês
+  * **5 nós:** \$35 USD/mês
+  * **10 nós:** \$70 USD/mês
+
+**Total estimado (exemplo para 1 nó):** \$22 USD/mês
+**Total estimado (exemplo para 5 nós):** \$50 USD/mês
+**Total estimado (exemplo para 10 nós):** \$85 USD/mês
+
+Todos os valores permanecem dentro do limite orçado (≤ USD 50) para configurações até 5 nós. Para 10 nós, ultrapassa o limite, então deve-se avaliar a necessidade de escala.
+
+Este valor inclui apenas os recursos principais (banco e container). A AWS Lightsail não cobra por transferência de dados dentro da cota mensal de 500 GB; excedentes podem gerar custos adicionais baixos (ex.: \$0.09 USD/GB extra). Assim, permanecemos confortavelmente dentro do orçamento para configurações apropriadas.
 
 ---
 
