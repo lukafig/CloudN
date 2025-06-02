@@ -259,6 +259,9 @@ Para visualizar a demonstração da aplicação FastAPI em funcionamento após o
 
 Em seguida, habilitamos o serviço e aguardamos o deploy concluir. A API passou a responder em um domínio público fornecido pelo Lightsail, permitindo acesso externo via HTTP.
 
+print que mostra estrutura funcionando:
+![alt text](rename.png)
+
 ## 8. Estimativa de Custo Mensal
 
 Para estimar o custo mensal da infraestrutura na AWS Lightsail, utilizamos dois componentes principais:
