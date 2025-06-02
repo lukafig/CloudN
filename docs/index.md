@@ -16,10 +16,10 @@ Luiz Durand
 ## Entregas
 
 - [x] Roteiro 1 - Data 21/03/2025
-- [ ] Roteiro 2
-- [ ] Roteiro 3
-- [ ] Roteiro 4
-- [ ] Projeto
+- [x] Roteiro 2
+- [x] Roteiro 3
+- [x] Roteiro 4
+- [x] Projeto
 
 
 ## Referências
