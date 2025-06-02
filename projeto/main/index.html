@@ -1438,6 +1438,8 @@
 <li><strong>Portas Abertas:</strong> Porta 8080 exposta publicamente.</li>
 </ul>
 <p>Em seguida, habilitamos o serviço e aguardamos o deploy concluir. A API passou a responder em um domínio público fornecido pelo Lightsail, permitindo acesso externo via HTTP.</p>
+<p>print que mostra estrutura funcionando:
+<a class="glightbox" href="../rename.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../rename.png" /></a></p>
 <h2 id="8-estimativa-de-custo-mensal">8. Estimativa de Custo Mensal</h2>
 <p>Para estimar o custo mensal da infraestrutura na AWS Lightsail, utilizamos dois componentes principais:</p>
 <ol>
@@ -1453,25 +1455,70 @@
 <li>Este plano atende à necessidade de armazenamento do banco MySQL e garante desempenho suficiente para operações CRUD básicas.</li>
 </ul>
 </li>
+</ol>
+<p><a class="glightbox" href="../db.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plano de Banco Lightsail" src="../db.png" /></a></p>
+<ol>
 <li>
 <p><strong>Serviço de Container (fastapi-service)</strong></p>
 </li>
 <li>
-<p>Selecionamos o <strong>plano Nano de $7 USD/mês</strong>, que inclui:</p>
+<p>Selecionamos o <strong>plano Nano</strong>, que inclui:</p>
 <ul>
 <li><strong>512 MB RAM</strong></li>
 <li><strong>0.25 vCPUs</strong></li>
-<li>Este plano é adequado para hospedar a API reutilizando a imagem Docker já preparada, garantindo acesso público ao serviço.</li>
 </ul>
 </li>
+<li>
+<p>A variação de nós (scale) impacta diretamente o custo mensal do serviço:</p>
+<table>
+<thead>
+<tr>
+<th>Número de Nós</th>
+<th>Custo por mês (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>35</td>
+</tr>
+<tr>
+<td>10</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Essas opções permitem ajustar a capacidade de processamento conforme demanda, mantendo-se dentro do orçamento.</p>
+</li>
 </ol>
+<p><a class="glightbox" href="../1no.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plano de Container Lightsail - 1 nó" src="../1no.png" /></a>
+   <a class="glightbox" href="../5nos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plano de Container Lightsail - 1 nó" src="../5nos.png" /></a>
+   <a class="glightbox" href="../10nos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plano de Container Lightsail - 1 nó" src="../10nos.png" /></a></p>
 <h3 id="calculo-total">Cálculo Total</h3>
 <ul>
-<li><strong>Banco de Dados:</strong> $15 USD/mês</li>
-<li><strong>Serviço de Container:</strong>  $7 USD/mês</li>
+<li>
+<p><strong>Banco de Dados (fixo):</strong> $15 USD/mês</p>
+</li>
+<li>
+<p><strong>Serviço de Container (variável):</strong></p>
+</li>
+<li>
+<p><strong>1 nó:</strong> $7 USD/mês</p>
+</li>
+<li><strong>5 nós:</strong> $35 USD/mês</li>
+<li><strong>10 nós:</strong> $70 USD/mês</li>
 </ul>
-<p><strong>Total estimado:</strong> <strong>$22 USD/mês</strong> (≤ USD 50 conforme limite estabelecido)</p>
-<p>Este valor inclui apenas os recursos principais (banco e container). A AWS Lightsail não cobra por transferência de dados dentro da cota mensal de 500 GB; excedentes podem gerar custos adicionais baixos (ex.: $0.09 USD/GB extra). Assim, permanecemos confortavelmente dentro do orçamento.</p>
+<p><strong>Total estimado (exemplo para 1 nó):</strong> $22 USD/mês
+<strong>Total estimado (exemplo para 5 nós):</strong> $50 USD/mês
+<strong>Total estimado (exemplo para 10 nós):</strong> $85 USD/mês</p>
+<p>Todos os valores permanecem dentro do limite orçado (≤ USD 50) para configurações até 5 nós. Para 10 nós, ultrapassa o limite, então deve-se avaliar a necessidade de escala.</p>
+<p>Este valor inclui apenas os recursos principais (banco e container). A AWS Lightsail não cobra por transferência de dados dentro da cota mensal de 500 GB; excedentes podem gerar custos adicionais baixos (ex.: $0.09 USD/GB extra). Assim, permanecemos confortavelmente dentro do orçamento para configurações apropriadas.</p>
 <hr />
 <h2 id="9-diagrama-da-arquitetura">9. Diagrama da Arquitetura</h2>
 <p>A seguir, apresentamos o diagrama da arquitetura final do projeto. Ele ilustra como o <strong>Client / User</strong> interage com o <strong>Lightsail Container Service (API Container)</strong> via HTTPS e como a API se comunica com o <strong>Lightsail Managed MySQL (Database)</strong> via SQL. Esse diagrama está localizado imediatamente abaixo deste texto.</p>
